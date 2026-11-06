@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Imperia — дом моды. Одежда-манифест</title>
+<meta name="description" content="Bazalt — дом моды с 2012 года. Пальто, костюмы, платья и аксессуары из натуральных тканей. Коллекция осень–зима, акции и бонусная программа Bazalt Club.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============ БАЗА ============ */
+:root{
+  --black:#080706;
+  --coal:#100d0a;
+  --ink:#16130e;
+  --beige:#e6d3ac;
+  --beige-soft:#f1e7d2;
+  --cream:#f7f1e4;
+  --sand:#c8a45e;
+  --sand-deep:#a17f42;
+  --gold:#e7cd93;
+  --line:rgba(230,205,163,.14);
+  --muted:rgba(247,241,228,.6);
+  --serif:'Playfair Display',Georgia,'Times New Roman',serif;
+  --serif-alt:'Cormorant Garamond',Georgia,serif;
+  --sans:'Inter',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:92px}
+body{
+  font-family:var(--sans);
+  background:var(--black);
+  color:var(--cream);
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+body.nav-open{overflow:hidden}
+ul{list-style:none}
+a{color:inherit}
+button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+a:focus-visible,button:focus-visible{outline:2px solid var(--sand);outline-offset:3px}
+::selection{background:var(--sand);color:#14110d}
+
+.container{width:min(1180px,92%);margin-inline:auto}
+.section{padding:clamp(72px,9vw,120px) 0}
+.section--cream{background:var(--cream);color:var(--ink)}
+.section--beige{background:var(--beige);color:var(--ink)}
+
+.label{
+  display:flex;align-items:center;gap:14px;
+  font-size:.72rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--sand);margin-bottom:20px;
+}
+.label::before{content:'';width:44px;height:1px;background:currentColor;flex:none}
+.section--cream .label,.section--beige .label{color:var(--sand-deep)}
+
+.title{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(2rem,4.4vw,3.3rem);
+  line-height:1.12;letter-spacing:.01em;
+}
+.title em{
+  font-style:italic;color:var(--gold);
+  background:linear-gradient(105deg,var(--gold) 20%,#f7e6bb 45%,var(--sand) 65%,var(--gold) 90%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.section--cream .title em,.section--beige .title em{
+  color:var(--sand-deep);
+  background:linear-gradient(105deg,var(--sand-deep) 20%,var(--sand) 50%,var(--sand-deep) 80%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.section-head{max-width:640px}
+.section-head__note{margin-top:18px;color:var(--muted)}
+.section--cream .section-head__note,.section--beige .section-head__note{color:#5c5344}
+
+/* ============ КНОПКИ ============ */
+.btn{
+  position:relative;display:inline-flex;align-items:center;justify-content:center;
+  padding:18px 42px;border:1px solid transparent;overflow:hidden;isolation:isolate;
+  font-family:var(--sans);font-weight:500;font-size:.76rem;line-height:1;
+  letter-spacing:.26em;text-transform:uppercase;text-decoration:none;
+  transition:color .35s,border-color .35s,transform .2s,box-shadow .35s;
+}
+.btn::before{
+  content:'';position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(120deg,var(--sand-deep),var(--gold) 55%,var(--sand-deep));
+  background-size:200% 100%;
+  background-position:100% 0;
+  transform:translateY(101%);
+  transition:transform .5s var(--ease),background-position .5s var(--ease);
+}
+.btn:hover::before{transform:translateY(0);background-position:0 0}
+.btn:active{transform:scale(.97)}
+.btn--fill{
+  background:linear-gradient(120deg,var(--beige),var(--gold) 50%,var(--beige));
+  background-size:200% 100%;
+  color:#14110d;border-color:rgba(231,205,153,.4);
+  box-shadow:0 12px 34px -14px rgba(200,164,94,.45);
+}
+.btn--fill:hover{
+  color:#0b0a08;background-position:0 0;
+  box-shadow:0 16px 44px -14px rgba(200,164,94,.6);
+}
+.btn--ghost{
+  border-color:rgba(231,205,153,.42);color:var(--gold);
+  box-shadow:inset 0 0 0 0 rgba(200,164,94,.0);
+}
+.btn--ghost::before{background:linear-gradient(120deg,var(--gold),#f7e6bb 50%,var(--gold));background-size:200% 100%;background-position:100% 0}
+.btn--ghost:hover{color:#14110d;border-color:var(--gold);box-shadow:0 0 34px -6px rgba(200,164,94,.35);background-position:0 0}
+.btn--dark{
+  background:#16130e;color:var(--cream);
+  border-color:rgba(230,205,163,.18);
+}
+.btn--dark::before{background:linear-gradient(120deg,var(--sand-deep),var(--gold) 50%,var(--sand-deep));background-size:200% 100%;background-position:100% 0}
+.btn--dark:hover{color:#0b0a08;border-color:var(--gold);box-shadow:0 0 34px -8px rgba(200,164,94,.45)}
+
+/* ============ ШАПКА ============ */
+.header{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  border-bottom:1px solid transparent;
+  transition:background .35s,border-color .35s,backdrop-filter .35s;
+}
+.header.scrolled{
+  background:rgba(8,7,6,.82);
+  -webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+  border-color:rgba(230,205,163,.1);
+}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:26px 0;transition:padding .35s}
+.header.scrolled .header__inner{padding:15px 0}
+.logo{display:flex;flex-direction:column;gap:5px;text-decoration:none;line-height:1}
+.logo b{
+  font-family:var(--serif);font-weight:600;font-size:1.5rem;
+  letter-spacing:.34em;color:var(--cream);padding-left:.34em;margin-left:-.34em;
+  transition:color .3s;
+}
+.logo span{
+  font-size:.54rem;font-weight:500;letter-spacing:.52em;text-transform:uppercase;
+  background:linear-gradient(90deg,var(--gold),var(--sand) 60%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--sand);
+  padding-left:.52em;margin-left:-.52em;
+}
+.nav{display:flex;align-items:center;gap:32px}
+.nav__link{
+  position:relative;padding:6px 0;text-decoration:none;
+  font-size:.74rem;font-weight:400;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(247,241,228,.72);transition:color .3s;
+}
+.nav__link::after{
+  content:'';position:absolute;left:0;bottom:0;width:100%;height:1px;
+  background:linear-gradient(90deg,var(--gold),var(--sand));
+  transform:scaleX(0);transform-origin:right;
+  transition:transform .4s var(--ease);
+}
+.nav__link:hover{color:var(--cream)}
+.nav__link:hover::after{transform:scaleX(1);transform-origin:left}
+.nav__phone{
+  margin-left:10px;padding:12px 24px;text-decoration:none;
+  border:1px solid rgba(200,164,94,.4);color:var(--gold);
+  font-size:.74rem;font-weight:500;letter-spacing:.16em;
+  transition:background .3s,color .3s,border-color .3s,box-shadow .3s;
+}
+.nav__phone:hover{background:linear-gradient(120deg,var(--sand-deep),var(--gold));border-color:var(--gold);color:#14110d;box-shadow:0 0 26px -8px rgba(200,164,94,.55)}
+.burger{
+  display:none;position:relative;z-index:2;
+  width:46px;height:46px;flex:none;
+  flex-direction:column;align-items:center;justify-content:center;gap:5px;
+  border:1px solid var(--line);
+}
+.burger span{display:block;width:20px;height:2px;background:var(--beige);transition:transform .35s,opacity .35s}
+body.nav-open .burger span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+body.nav-open .burger span:nth-child(2){opacity:0}
+body.nav-open .burger span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;min-height:100vh;min-height:100svh;
+  display:flex;align-items:center;
+  padding:150px 0 100px;overflow:hidden;
+  background:
+    radial-gradient(1100px 520px at 78% 16%,rgba(200,164,94,.16),transparent 60%),
+    radial-gradient(720px 420px at 10% 88%,rgba(230,205,163,.08),transparent 60%),
+    var(--black);
+}
+.hero::after{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(700px 300px at 70% 20%,rgba(231,205,153,.1),transparent 70%);
+  animation:heroGlow 7s ease-in-out infinite alternate;
+}
+@keyframes heroGlow{
+  from{opacity:.5;transform:translateX(-8px)}
+  to{opacity:1;transform:translateX(8px)}
+}
+.hero__watermark{
+  position:absolute;right:-1%;bottom:7%;z-index:0;
+  font-family:var(--serif);font-weight:700;
+  font-size:clamp(5rem,16vw,15rem);line-height:.8;letter-spacing:.02em;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(230,205,163,.14);
+  background:linear-gradient(180deg,rgba(231,205,153,.16),rgba(231,205,153,0) 70%);
+  -webkit-background-clip:text;background-clip:text;
+  pointer-events:none;user-select:none;
+}
+.hero__inner{position:relative;z-index:1}
+.hero__eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-size:.7rem;font-weight:500;letter-spacing:.36em;text-transform:uppercase;
+  color:var(--beige);margin-bottom:30px;
+}
+.hero__eyebrow-dot{
+  width:7px;height:7px;flex:none;border-radius:50%;
+  background:var(--gold);box-shadow:0 0 14px rgba(231,205,153,.8);
+  animation:pulse 2.2s infinite;
+}
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(231,205,153,.5)}
+  70%{box-shadow:0 0 0 12px rgba(231,205,153,0)}
+  100%{box-shadow:0 0 0 0 rgba(231,205,153,0)}
+}
+.hero__title{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(2.5rem,6.6vw,5.2rem);
+  line-height:1.05;max-width:18ch;
+}
+.hero__title em{
+  font-style:italic;
+  background:linear-gradient(105deg,var(--gold) 15%,#f9e9c4 40%,var(--sand) 65%,var(--gold) 90%);
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:transparent;
+}
+.hero__lead{
+  max-width:54ch;margin:30px 0 46px;
+  font-size:clamp(1rem,1.4vw,1.15rem);font-weight:300;color:var(--muted);
+}
+.hero__actions{display:flex;flex-wrap:wrap;gap:16px}
+.hero__eyebrow,.hero__title,.hero__lead,.hero__actions{animation:fadeUp .9s var(--ease) both}
+.hero__title{animation-delay:.15s}
+.hero__lead{animation-delay:.3s}
+.hero__actions{animation-delay:.45s}
+@keyframes fadeUp{from{opacity:0;transform:translateY(34px)}to{opacity:1;transform:none}}
+.hero__scroll{
+  position:absolute;left:50%;bottom:30px;transform:translateX(-50%);z-index:1;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  font-size:.62rem;letter-spacing:.42em;text-transform:uppercase;
+  color:rgba(244,237,225,.5);text-decoration:none;text-indent:.42em;
+}
+.hero__scroll::after{
+  content:'';width:1px;height:54px;
+  background:linear-gradient(var(--sand),transparent);
+  animation:scrollHint 2.1s var(--ease) infinite;
+}
+@keyframes scrollHint{
+  0%{transform:scaleY(0);transform-origin:top}
+  45%{transform:scaleY(1);transform-origin:top}
+  55%{transform:scaleY(1);transform-origin:bottom}
+  100%{transform:scaleY(0);transform-origin:bottom}
+}
+
+/* ============ БЕГУЩАЯ СТРОКА ============ */
+.marquee{
+  background:linear-gradient(90deg,#141006,#211a0e 50%,#141006);
+  color:var(--gold);overflow:hidden;padding:16px 0;
+  border-top:1px solid rgba(231,205,153,.14);
+  border-bottom:1px solid rgba(231,205,153,.14);
+}
+.marquee__track{display:flex;width:max-content;animation:marquee 28s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.marquee__group{display:flex;align-items:center;flex:none}
+.marquee__group span{
+  font-family:var(--serif-alt);font-style:italic;font-weight:500;
+  font-size:1.05rem;letter-spacing:.22em;text-transform:uppercase;
+  padding:0 26px;white-space:nowrap;
+}
+.marquee__group i{
+  font-style:normal;font-size:.7rem;color:var(--sand);
+  text-shadow:0 0 12px rgba(231,205,153,.7);
+}
+@keyframes marquee{to{transform:translateX(-50%)}}
+
+/* ============ О БРЕНДЕ ============ */
+.about__grid{
+  display:grid;grid-template-columns:1.12fr .88fr;
+  gap:clamp(44px,6vw,90px);align-items:center;
+}
+.about__text p{max-width:58ch;color:#4c443a;margin-bottom:18px;font-weight:300}
+.about__quote{
+  margin-top:34px;padding-left:26px;border-left:2px solid var(--sand-deep);
+  font-family:var(--serif-alt);font-style:italic;font-weight:400;
+  font-size:clamp(1.4rem,2.2vw,1.7rem);
+  line-height:1.4;color:var(--ink);
+}
+.about__quote cite{
+  display:block;margin-top:12px;font-family:var(--sans);font-style:normal;
+  font-size:.7rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;color:var(--sand-deep);
+}
+.about__panel{
+  position:relative;
+  background:linear-gradient(160deg,#14110b,#1b1710);
+  color:var(--cream);
+  border:1px solid rgba(231,205,153,.16);
+  border-radius:6px;padding:clamp(30px,4vw,52px);
+  box-shadow:0 34px 70px -34px rgba(0,0,0,.75),inset 0 1px 0 rgba(231,205,153,.08);
+}
+.about__panel::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(231,205,153,.7),transparent);
+}
+.about__panel-tag{
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:.66rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:14px;
+}
+.about__panel-tag::after{content:'с 2012 года';color:rgba(247,241,228,.45)}
+.stats{display:grid;grid-template-columns:1fr 1fr}
+.stat{padding:24px 6px 22px 0;border-bottom:1px solid rgba(231,205,153,.12)}
+.stat:nth-child(odd){border-right:1px solid rgba(231,205,153,.12);padding-right:26px}
+.stat:nth-child(even){padding-left:26px}
+.stat:nth-last-child(-n+2){border-bottom:none;padding-bottom:0}
+.stat b{
+  display:block;font-family:var(--serif);font-weight:500;
+  font-size:clamp(2.1rem,3.2vw,2.9rem);line-height:1.1;
+  background:linear-gradient(120deg,var(--gold),var(--beige) 60%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+}
+.stat span{
+  display:block;margin-top:8px;
+  font-size:.7rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;
+  color:rgba(247,241,228,.5);
+}
+
+/* ============ КОЛЛЕКЦИЯ ============ */
+.collection{background:linear-gradient(180deg,var(--black) 0%,#0d0b09 100%)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;margin-top:56px}
+.card{min-width:0}
+.card__media{
+  position:relative;aspect-ratio:3/4;border-radius:6px;overflow:hidden;
+  border:1px solid rgba(231,205,153,.12);
+  box-shadow:0 18px 40px -24px rgba(0,0,0,.85);
+  transition:box-shadow .5s var(--ease),border-color .5s;
+}
+.card__media::before{
+  content:'';position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(160deg,rgba(231,205,153,.12),transparent 42%);
+  mix-blend-mode:overlay;
+}
+.card__art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.tone-1 .card__art{background:linear-gradient(160deg,#eee3cd,#c9b28c)}
+.tone-2 .card__art{background:linear-gradient(160deg,#e3d5ba,#b39b72)}
+.tone-3 .card__art{background:linear-gradient(160deg,#f2ead9,#d6c3a0)}
+.tone-4 .card__art{background:linear-gradient(160deg,#d9c9ab,#a98f66)}
+.tone-5 .card__art{background:linear-gradient(160deg,#efe6d2,#c4ad86)}
+.tone-6 .card__art{background:linear-gradient(160deg,#e0d2b6,#ac9268)}
+.card:hover .card__art{transform:scale(1.06)}
+.card:hover .card__media{border-color:rgba(231,205,153,.4);box-shadow:0 30px 60px -26px rgba(0,0,0,.9),0 0 40px -18px rgba(200,164,94,.4)}
+.card__media::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(8,7,6,.4),transparent 45%);
+  opacity:0;transition:opacity .4s;
+}
+.card:hover .card__media::after{opacity:1}
+.card__badge{
+  position:absolute;top:16px;left:16px;z-index:3;
+  padding:8px 14px;border-radius:2px;
+  background:rgba(8,7,6,.78);-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  color:var(--gold);border:1px solid rgba(231,205,153,.28);
+  font-size:.58rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+}
+.card__badge--sale{
+  background:linear-gradient(120deg,var(--sand-deep),var(--gold));
+  color:#14110d;border-color:transparent;
+  box-shadow:0 6px 20px -6px rgba(200,164,94,.6);
+}
+.card__index{
+  position:absolute;top:14px;right:18px;z-index:2;
+  font-family:var(--serif);font-weight:500;font-size:1.05rem;
+  color:rgba(20,16,11,.4);
+}
+.card__cta{
+  position:absolute;left:14px;right:14px;bottom:14px;z-index:4;
+  padding:15px 10px;text-align:center;
+  background:rgba(8,7,6,.9);color:var(--gold);
+  border:1px solid rgba(231,205,153,.45);border-radius:3px;
+  font-size:.66rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+  opacity:0;transform:translateY(14px);
+  transition:opacity .4s,transform .4s var(--ease),background .3s,color .3s,box-shadow .3s;
+}
+.card:hover .card__cta{opacity:1;transform:none}
+.card__cta:hover{
+  background:linear-gradient(120deg,var(--sand-deep),var(--gold));
+  color:#14110d;box-shadow:0 0 26px -8px rgba(200,164,94,.6);
+}
+.card__body{
+  display:flex;justify-content:space-between;align-items:flex-start;
+  gap:14px;padding:18px 4px 0;
+}
+.card__body h3{font-family:var(--serif);font-weight:500;font-size:1.2rem;line-height:1.25}
+.card__cat{
+  margin-top:7px;font-size:.68rem;font-weight:400;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--muted);
+}
+.card__price{
+  flex:none;text-align:right;font-weight:500;font-size:1.05rem;
+  background:linear-gradient(120deg,var(--gold),var(--beige));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+  white-space:nowrap;
+}
+.card__price s{
+  display:block;font-size:.76rem;font-weight:400;
+  color:var(--muted);-webkit-text-fill-color:var(--muted);
+}
+
+/* ============ АКЦИИ ============ */
+.promo__grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:56px}
+.promo__card{
+  display:flex;flex-direction:column;gap:14px;
+  background:var(--cream);color:var(--ink);
+  border:1px solid rgba(20,16,11,.12);border-radius:6px;
+  padding:clamp(28px,3.5vw,44px);
+  transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;
+}
+.promo__card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 30px 54px -22px rgba(25,21,16,.45),0 0 34px -18px rgba(161,127,66,.35);
+  border-color:rgba(161,127,66,.35);
+}
+.promo__card--main{
+  grid-column:1/-1;
+  background:linear-gradient(150deg,#14110b,#1d1810 60%,#14110b);
+  color:var(--cream);
+  border-color:rgba(231,205,153,.2);
+  box-shadow:inset 0 1px 0 rgba(231,205,153,.1);
+}
+.promo__card--main:hover{border-color:rgba(231,205,153,.45)}
+.promo__tag{
+  align-self:flex-start;padding:8px 16px;border-radius:2px;
+  background:rgba(161,127,66,.12);color:var(--sand-deep);
+  border:1px solid rgba(161,127,66,.22);
+  font-size:.6rem;font-weight:500;letter-spacing:.28em;text-transform:uppercase;
+}
+.promo__card--main .promo__tag{
+  background:linear-gradient(120deg,var(--sand-deep),var(--gold));
+  color:#14110d;border-color:transparent;
+  box-shadow:0 6px 20px -8px rgba(200,164,94,.6);
+}
+.promo__card h3{font-family:var(--serif);font-weight:500;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.15}
+.promo__card--main h3{font-size:clamp(2rem,4vw,2.9rem)}
+.promo__card p{color:#57503f;max-width:70ch;font-weight:300}
+.promo__card--main p{color:var(--muted)}
+.promo__foot{
+  margin-top:auto;padding-top:12px;
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;
+}
+.promo__code{
+  padding:10px 18px;border:1px dashed var(--sand-deep);border-radius:2px;
+  font-size:.66rem;font-weight:500;letter-spacing:.22em;text-transform:uppercase;color:var(--sand-deep);
+  transition:background .3s,color .3s,border-color .3s,box-shadow .3s;
+}
+.promo__card--main .promo__code{border-color:var(--gold);color:var(--gold)}
+.promo__code:hover{
+  background:linear-gradient(120deg,var(--sand-deep),var(--gold));
+  color:#14110d;border-color:transparent;
+  box-shadow:0 0 22px -8px rgba(200,164,94,.6);
+}
+.promo__date{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;color:#7c7261}
+.promo__card--main .promo__date{color:rgba(247,241,228,.5)}
+
+/* ============ БОНУСНАЯ ПРОГРАММА ============ */
+.bonus{background:linear-gradient(180deg,#0d0b09,var(--coal))}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:56px}
+.step{
+  padding:28px;border:1px solid var(--line);border-radius:6px;
+  background:rgba(231,205,153,.03);
+  transition:border-color .35s,transform .35s var(--ease),background .35s,box-shadow .35s;
+}
+.step:hover{
+  border-color:rgba(200,164,94,.55);transform:translateY(-5px);
+  background:rgba(231,205,153,.06);
+  box-shadow:0 22px 44px -24px rgba(0,0,0,.6),0 0 30px -18px rgba(200,164,94,.35);
+}
+.step b{
+  display:block;margin-bottom:14px;
+  font-family:var(--serif);font-weight:500;font-size:2rem;line-height:1;
+  background:linear-gradient(120deg,var(--gold),var(--sand) 70%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+}
+.step h3{font-family:var(--serif);font-weight:500;font-size:1.15rem;margin-bottom:10px}
+.step p{font-size:.92rem;font-weight:300;color:var(--muted)}
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:22px}
+.tier{
+  position:relative;display:flex;flex-direction:column;
+  padding:34px 30px;border:1px solid var(--line);border-radius:6px;
+  background:rgba(231,205,153,.02);
+  transition:transform .35s var(--ease),border-color .35s,box-shadow .35s;
+}
+.tier:hover{
+  transform:translateY(-5px);border-color:rgba(200,164,94,.5);
+  box-shadow:0 24px 48px -26px rgba(0,0,0,.65),0 0 34px -18px rgba(200,164,94,.35);
+}
+.tier__name{
+  font-size:.68rem;font-weight:500;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:16px;
+}
+.tier__percent{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(2.4rem,3.6vw,3.2rem);line-height:1;
+  background:linear-gradient(120deg,var(--gold),var(--beige) 60%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+}
+.tier__percent small{
+  font-family:var(--sans);font-size:.66rem;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
+  display:block;margin-top:8px;
+}
+.tier ul{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+.tier li{
+  position:relative;padding-left:22px;
+  font-size:.88rem;font-weight:300;color:var(--muted);
+}
+.tier li::before{content:'✦';position:absolute;left:0;top:1px;font-size:.6rem;color:var(--gold);text-shadow:0 0 10px rgba(231,205,153,.6)}
+.tier--hot{
+  background:linear-gradient(165deg,#191409,#241c0e 55%,#191409);
+  border-color:rgba(200,164,94,.55);color:var(--cream);
+  box-shadow:0 24px 50px -26px rgba(0,0,0,.7),inset 0 1px 0 rgba(231,205,153,.14);
+}
+.tier--hot .tier__name{color:var(--gold)}
+.tier--hot .tier__percent{
+  background:linear-gradient(120deg,var(--gold),#f9e9c4 50%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+}
+.tier--hot .tier__percent small{color:rgba(247,241,228,.55)}
+.tier--hot li{color:var(--beige)}
+.tier--hot li::before{color:var(--gold)}
+.tier__flag{
+  position:absolute;top:-13px;left:30px;
+  padding:7px 16px;border-radius:2px;
+  background:linear-gradient(120deg,var(--sand-deep),var(--gold));color:#14110d;
+  font-size:.58rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+  box-shadow:0 8px 22px -8px rgba(200,164,94,.7);
+}
+.bonus__note{margin-top:24px;max-width:78ch;font-size:.84rem;font-weight:300;color:rgba(247,241,228,.45)}
+.bonus__cta{display:flex;justify-content:center;margin-top:48px}
+
+/* ============ КОНТАКТЫ ============ */
+.contacts{background:#0e0c09}
+.contacts__grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(40px,5vw,70px);align-items:center}
+.contacts__list{margin-top:36px;border-top:1px solid var(--line)}
+.contacts__list li{
+  display:flex;justify-content:space-between;align-items:baseline;gap:24px;
+  padding:17px 0;border-bottom:1px solid var(--line);
+}
+.contacts__list span{
+  flex:none;font-size:.66rem;font-weight:500;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--muted);
+}
+.contacts__list b{font-weight:400;text-align:right;line-height:1.6}
+.contacts__list a{text-decoration:none;color:var(--gold);transition:color .3s,text-shadow .3s}
+.contacts__list a:hover{color:var(--gold);text-shadow:0 0 18px rgba(231,205,153,.5)}
+.socials{display:flex;flex-wrap:wrap;gap:12px;margin-top:30px}
+.socials a{
+  padding:12px 22px;border:1px solid rgba(231,205,153,.22);border-radius:2px;
+  font-size:.66rem;font-weight:500;letter-spacing:.26em;text-transform:uppercase;
+  color:var(--gold);text-decoration:none;background:rgba(231,205,153,.03);
+  transition:background .3s,color .3s,border-color .3s,box-shadow .3s,transform .3s;
+}
+.socials a:hover{
+  background:linear-gradient(120deg,var(--sand-deep),var(--gold));
+  border-color:var(--gold);color:#14110d;
+  box-shadow:0 10px 26px -12px rgba(200,164,94,.65);
+  transform:translateY(-2px);
+}
+.map{
+  position:relative;min-height:440px;border:1px solid rgba(231,205,153,.16);border-radius:6px;
+  overflow:hidden;
+  background:
+    repeating-linear-gradient(0deg,rgba(231,205,153,.05) 0 1px,transparent 1px 46px),
+    repeating-linear-gradient(90deg,rgba(231,205,153,.05) 0 1px,transparent 1px 46px),
+    radial-gradient(600px 320px at 50% 46%,rgba(200,164,94,.11),transparent 70%),
+    #080706;
+}
+.map::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(160deg,rgba(231,205,153,.08),transparent 45%);
+}
+.map__road{position:absolute;background:rgba(231,205,153,.1)}
+.map__road--h{left:0;right:0;top:46%;height:14px}
+.map__road--v{top:0;bottom:0;left:50%;width:14px}
+.map__pin{
+  position:absolute;left:50%;top:46%;
+  width:15px;height:15px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold),var(--sand-deep));
+  border:3px solid #080706;
+  box-shadow:0 0 22px rgba(231,205,153,.7);
+  transform:translate(-50%,-50%);
+  animation:pinPulse 2s infinite;
+}
+@keyframes pinPulse{to{box-shadow:0 0 0 28px rgba(231,205,153,0)}}
+.map__chip{
+  position:absolute;left:50%;bottom:22px;transform:translateX(-50%);
+  padding:12px 22px;border:1px solid rgba(231,205,153,.25);border-radius:3px;
+  background:rgba(14,12,9,.94);color:var(--gold);
+  font-size:.64rem;font-weight:500;letter-spacing:.24em;text-transform:uppercase;
+  white-space:nowrap;
+  box-shadow:0 14px 34px -18px rgba(0,0,0,.8);
+}
+
+/* ============ ПОДВАЛ ============ */
+.footer{background:var(--black);border-top:1px solid rgba(231,205,153,.12);padding:34px 0}
+.footer__inner{
+  display:flex;justify-content:space-between;align-items:center;
+  gap:22px;flex-wrap:wrap;
+}
+.footer__nav{display:flex;flex-wrap:wrap;gap:24px}
+.footer__nav a{
+  font-size:.68rem;font-weight:400;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--muted);text-decoration:none;transition:color .3s,text-shadow .3s;
+}
+.footer__nav a:hover{color:var(--gold);text-shadow:0 0 16px rgba(231,205,153,.45)}
+.footer__copy{font-size:.76rem;font-weight:300;color:var(--muted)}
+.footer__copy em{
+  font-style:italic;font-family:var(--serif-alt);
+  background:linear-gradient(90deg,var(--gold),var(--beige));
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;color:var(--gold);
+}
+
+/* ============ ПОЯВЛЕНИЕ ПРИ СКРОЛЛЕ ============ */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.visible{opacity:1;transform:none}
+.reveal[data-delay="1"]{transition-delay:.12s}
+.reveal[data-delay="2"]{transition-delay:.24s}
+.reveal[data-delay="3"]{transition-delay:.36s}
+
+/* ============ АДАПТИВ ============ */
+@media (max-width:1200px){
+  .nav__phone{display:none}
+}
+@media (max-width:1020px){
+  .grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:900px){
+  .header__inner{padding:18px 0}
+  .burger{display:flex}
+  .nav{
+    position:fixed;inset:0;z-index:1;
+    flex-direction:column;justify-content:center;gap:10px;
+    background:rgba(10,9,7,.98);
+    opacity:0;visibility:hidden;
+    transition:opacity .4s,visibility .4s;
+  }
+  body.nav-open .nav{opacity:1;visibility:visible}
+  .nav__link{
+    font-family:var(--serif);font-size:1.75rem;font-weight:600;
+    text-transform:none;letter-spacing:.04em;color:var(--cream);
+  }
+  .nav__link::after{display:none}
+  .about__grid,.contacts__grid{grid-template-columns:1fr}
+  .steps,.tiers{grid-template-columns:1fr;gap:16px}
+  .map{min-height:340px}
+}
+@media (max-width:640px){
+  html{scroll-padding-top:76px}
+  .grid{grid-template-columns:1fr}
+  .promo__grid{grid-template-columns:1fr}
+  .hero{padding-top:130px}
+  .hero__scroll{display:none}
+  .hero__actions .btn{width:100%}
+  .card__body{flex-direction:column;gap:8px}
+  .card__price{text-align:left}
+  .stats{grid-template-columns:1fr 1fr}
+  .footer__inner{flex-direction:column;align-items:flex-start}
+}
+
+/* ============ ДОСТУПНОСТЬ ============ */
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{
+    animation-duration:.01ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:.01ms !important;
+  }
+  .reveal{opacity:1;transform:none}
+}
+</style>
+<noscript><style>.reveal{opacity:1;transform:none}</style></noscript>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container header__inner">
+    <a class="logo" href="#hero" aria-label="Imperia — на главную">
+      <b>IMPERIA</b><span>дом моды</span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Основная навигация">
+      <a class="nav__link" href="#about">О бренде</a>
+      <a class="nav__link" href="#collection">Коллекция</a>
+      <a class="nav__link" href="#promo">Акции</a>
+      <a class="nav__link" href="#bonus">Бонусы</a>
+      <a class="nav__link" href="#contacts">Контакты</a>
+      <a class="nav__phone" href="tel:+74951204567">+7 495 120-45-67</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Открыть меню" aria-controls="nav" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="hero">
+  <div class="hero__watermark" aria-hidden="true">IMPERIA</div>
+  <div class="container hero__inner">
+    <p class="hero__eyebrow"><span class="hero__eyebrow-dot"></span>Дом моды · Санкт-Петербург · с 2012 года</p>
+    <h1 class="hero__title">Мы не следуем трендам. <em>Мы их создаём.</em></h1>
+    <p class="hero__lead">
+      Imperia — это одежда-манифест: строгий силуэт, честные ткани и характер,
+      который не нужно доказывать. Чёрный. Бежевый. Ноль компромиссов.
+    </p>
+    <div class="hero__actions">
+      <a class="btn btn--fill" href="#collection">Смотреть коллекцию</a>
+      <a class="btn btn--ghost" href="#about">Наша история</a>
+    </div>
+  </div>
+  <a class="hero__scroll" href="#about" aria-label="Перейти к разделу «О бренде»">листайте вниз</a>
+</section>
+
+<!-- ============ БЕГУЩАЯ СТРОКА ============ -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    <div class="marquee__group">
+      <span>Imperia</span><i>✦</i>
+      <span>Осень — зима 2026</span><i>✦</i>
+      <span>Новая коллекция уже в бутиках</span><i>✦</i>
+      <span>Носи характер</span><i>✦</i>
+      <span>Без компромиссов</span><i>✦</i>
+    </div>
+    <div class="marquee__group">
+      <span>Imperia</span><i>✦</i>
+      <span>Осень — зима 2026</span><i>✦</i>
+      <span>Новая коллекция уже в бутиках</span><i>✦</i>
+      <span>Носи характер</span><i>✦</i>
+      <span>Без компромиссов</span><i>✦</i>
+    </div>
+  </div>
+</div>
+
+<!-- ============ О БРЕНДЕ ============ -->
+<section class="section section--cream about" id="about">
+  <div class="container about__grid">
+    <div class="about__text reveal">
+      <p class="label">01 — О бренде</p>
+      <h2 class="title">История, написанная <em>стилем</em></h2>
+      <p style="margin-top:26px">
+        Всё началось в 2012 году с крошечного ателье на Пятницкой: три швейные машины,
+        один манекен и убеждение, что роскошь — это не логотип на груди, а идеальная
+        посадка по фигуре. Первое пальто Imperia разошлось за неделю — по сарафанному радио.
+      </p>
+      <p>
+        Сегодня Imperia — это дом моды с собственным производством, сорока бутиками
+        и шестью коллекциями в год. Мы работаем только с натуральными тканями, шьём
+        в Санкт-Петербурге и Милане и верны одному правилу: каждая вещь должна переживать тренды,
+        сезоны и настроение понедельника.
+      </p>
+      <blockquote class="about__quote">
+        «Мы шьём не вещи — мы шьём характер.»
+        <cite>Артём Сафиуллин · основатель дома</cite>
+      </blockquote>
+    </div>
+    <div class="about__panel reveal" data-delay="1">
+      <p class="about__panel-tag">Imperia в цифрах</p>
+      <div class="stats">
+        <div class="stat"><b>12</b><span>лет задаём тон моде</span></div>
+        <div class="stat"><b>6</b><span>коллекций каждый год</span></div>
+        <div class="stat"><b>40+</b><span>бутиков по стране</span></div>
+        <div class="stat"><b>120к</b><span>клиентов в клубе Imperia</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КОЛЛЕКЦИЯ ============ -->
+<section class="section collection" id="collection">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label">02 — Коллекция</p>
+      <h2 class="title">Фирменные вещи <em>осень–зима</em></h2>
+      <p class="section-head__note">Шесть вещей, с которых начинается империя.</p>
+    </div>
+    <div class="grid">
+      <article class="card tone-1 reveal">
+        <div class="card__media">
+          <span class="card__badge">Хит</span>
+          <span class="card__index">01</span>
+          <img class="card__art" src="https://n.cdn.cdek.shopping/images/shopping/RXMuaKMbDMHLVBbF.jpg?v=1" alt="Rick Owens Double Bumper">
+          <button class="card__cta" type="button">Быстрый просмотр</button>
+        </div>
+        <div class="card__body">
+          <div>
+            <h3>Rick Owens Double Bumper</h3>
+            <p class="card__cat">Кашемир · шерсть</p>
+          </div>
+          <p class="card__price">34 900 ₽</p>
+        </div>
+      </article>
+      <article class="card tone-2 reveal" data-delay="1">
+        <div class="card__media">
+          <span class="card__badge">New</span>
+          <span class="card__index">02</span>
+          <img class="card__art" src="https://n.cdn.cdek.shopping/images/shopping/Q7jC5EI7BqfxdNh8.jpg?v=1" alt="Balenciaga Striker">
+          <button class="card__cta" type="button">Быстрый просмотр</button>
+        </div>
+        <div class="card__body">
+          <div>
+            <h3>Balenciaga Striker</h3>
+            <p class="card__cat">Шерсть Super 120's</p>
+          </div>
+          <p class="card__price">42 500 ₽</p>
+        </div>
+      </article>
+      <article class="card tone-3 reveal" data-delay="2">
+        <div class="card__media">
+          <span class="card__badge card__badge--sale">−20%</span>
+          <span class="card__index">03</span>
+          <img class="card__art" src="https://n.cdn.cdek.shopping/images/shopping/9uRiSBbd9IyZwdNW.jpg?v=1" alt="Philippe Plein">
+          <button class="card__cta" type="button">Быстрый просмотр</button>
+        </div>
+        <div class="card__body">
+          <div>
+            <h3>Philippe Plein</h3>
+            <p class="card__cat">Натуральный шёлк</p>
+          </div>
+          <p class="card__price"><s>36 900 ₽</s>28 700 ₽</p>
+        </div>
+      </article>
+      <article class="card tone-4 reveal">
+        <div class="card__media">
+          <span class="card__index">04</span>
+          <img class="card__art" src="https://avatars.mds.yandex.net/i?id=1036f132be9e87e492f27032781813d90e49eaf8-5264085-images-thumbs&n=13" alt="Premiata">
+          <button class="card__cta" type="button">Быстрый просмотр</button>
+        </div>
+        <div class="card__body">
+          <div>
+            <h3>Premiata</h3>
+            <p class="card__cat">Плотный габардин</p>
+          </div>
+          <p class="card__price">26 400 ₽</p>
+        </div>
+      </article>
+      <article class="card tone-5 reveal" data-delay="1">
+        <div class="card__media">
+          <span class="card__badge">Хит</span>
+          <span class="card__index">05</span>
+          <img class="card__art" src="https://avatars.mds.yandex.net/i?id=5d0bc1374c63b33539dfdad584eba58e9db5f7d7-16333797-images-thumbs&n=13" alt="Maison Margiela Future">
+          <button class="card__cta" type="button">Быстрый просмотр</button>
+        </div>
+        <div class="card__body">
+          <div>
+            <h3>Maison Margiela Future</h3>
+            <p class="card__cat">Кашемир 100%</p>
+          </div>
+          <p class="card__price">19 800 ₽</p>
+        </div>
+      </article>
+      <article class="card tone-6 reveal" data-delay="2">
+        <div class="card__media">
+          <span class="card__badge">New</span>
+          <span class="card__index">06</span>
+          <img class="card__art" src="https://avatars.mds.yandex.net/i?id=e017a2ee6c08ccdd35f5742309f061cc7cb974ff-5232569-images-thumbs&n=13" alt="Maison Mihara Yasuhiro">
+          <button class="card__cta" type="button">Быстрый просмотр</button>
+        </div>
+        <div class="card__body">
+          <div>
+            <h3>Maison Mihara Yasuhiro</h3>
+            <p class="card__cat">Натуральная кожа</p>
+          </div>
+          <p class="card__price">51 200 ₽</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ АКЦИИ ============ -->
+<section class="section section--beige promo" id="promo">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label">03 — Акции</p>
+      <h2 class="title">Выгодно быть <em>дерзким</em></h2>
+    </div>
+    <div class="promo__grid">
+      <article class="promo__card promo__card--main reveal">
+        <p class="promo__tag">Октябрь · ограниченная серия</p>
+        <h3>−40% на вторую вещь в чеке</h3>
+        <p>
+          Вся коллекция осень–зима участвует в акции: берите две вещи — скидка 40%
+          посчитается на вторую автоматически. Суммируется с бонусами клуба Imperia.
+        </p>
+        <div class="promo__foot">
+          <span class="promo__code">Промокод: OCTOBER40</span>
+          <span class="promo__date">до 31 октября</span>
+        </div>
+      </article>
+      <article class="promo__card reveal" data-delay="1">
+        <p class="promo__tag">Постоянно</p>
+        <h3>Приведи друга — получите оба</h3>
+        <p>
+          Друг получает −15% на первый заказ, а вам на счёт падает 1 000 ₽.
+          Приглашать можно без ограничений.
+        </p>
+        <div class="promo__foot">
+          <span class="promo__code">Промокод: FRIEND</span>
+          <span class="promo__date">бессрочно</span>
+        </div>
+      </article>
+      <article class="promo__card reveal" data-delay="2">
+        <p class="promo__tag">Круглый год</p>
+        <h3>−25% в день рождения</h3>
+        <p>
+          Скидка действует семь дней до и после даты рождения на весь ассортимент,
+          включая новинки. Достаточно показать паспорт у кассы.
+        </p>
+        <div class="promo__foot">
+          <span class="promo__code">Промокод: BDAY25</span>
+          <span class="promo__date">−7 и +7 дней</span>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ БОНУСНАЯ ПРОГРАММА ============ -->
+<section class="section bonus" id="bonus">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="label">04 — Бонусная программа</p>
+      <h2 class="title">Imperia Club — <em>лояльность в чёрном цвете</em></h2>
+      <p class="section-head__note">1 бонус = 1 ₽. Копите с каждой покупки и платите ими до 30% чека.</p>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <b>01</b>
+        <h3>Вступите в клуб</h3>
+        <p>Карта оформляется за 60 секунд в любом бутике или онлайн — бесплатно и без условий.</p>
+      </div>
+      <div class="step reveal" data-delay="1">
+        <b>02</b>
+        <h3>Копите бонусы</h3>
+        <p>Начисляем от 5% с каждой покупки. Бонусы действуют 12 месяцев и не сгорают внезапно.</p>
+      </div>
+      <div class="step reveal" data-delay="2">
+        <b>03</b>
+        <h3>Оплачивайте ими</h3>
+        <p>До 30% чека можно закрыть бонусами — в бутиках и в интернет-магазине без ограничений по ассортименту.</p>
+      </div>
+    </div>
+    <div class="tiers">
+      <div class="tier reveal">
+        <p class="tier__name">Клиент</p>
+        <p class="tier__percent">5% <small>бонусами с каждой покупки</small></p>
+        <ul>
+          <li>Карта выдаётся при первой покупке</li>
+          <li>500 приветственных бонусов</li>
+          <li>Подарок 500 бонусов на день рождения</li>
+        </ul>
+      </div>
+      <div class="tier tier--hot reveal" data-delay="1">
+        <span class="tier__flag">Популярное</span>
+        <p class="tier__name">Премиум</p>
+        <p class="tier__percent">7% <small>при покупках от 50 000 ₽ в год</small></p>
+        <ul>
+          <li>Бесплатная подгонка по фигуре</li>
+          <li>Приоритетная примерка вне очереди</li>
+          <li>Ранний доступ к новым коллекциям</li>
+        </ul>
+      </div>
+      <div class="tier reveal" data-delay="2">
+        <p class="tier__name">Imperia Black</p>
+        <p class="tier__percent">10% <small>при покупках от 150 000 ₽ в год</small></p>
+        <ul>
+          <li>Личный стилист дома моды</li>
+          <li>Приглашения на закрытые показы</li>
+          <li>Доставка и возврат за счёт дома</li>
+        </ul>
+      </div>
+    </div>
+    <p class="bonus__note">
+      Бонусы не начисляются на подарочные сертификаты и не суммируются с некоторыми
+      акциями. Полные правила — у консультантов бутика и в личном кабинете.
+    </p>
+    <div class="bonus__cta reveal">
+      <a class="btn btn--fill" href="#contacts">Оформить карту клуба</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ КОНТАКТЫ ============ -->
+<section class="section contacts" id="contacts">
+  <div class="container contacts__grid">
+    <div class="reveal">
+      <p class="label">05 — Контакты</p>
+      <h2 class="title">Ждём вас в <em>сердце Санкт-Петербурга</em></h2>
+      <ul class="contacts__list">
+        <li>
+          <span>Адрес</span>
+          <b>Санкт-Петербург, Невский проспект, 22-24<br>метро «Невский проспект»</b>
+        </li>
+        <li>
+          <span>Часы работы бутика</span>
+          <b>Пн–Чт · 10:00–21:00<br>Пт–Вс · 10:00–22:00</b>
+        </li>
+        <li>
+          <span>Онлайн-служба</span>
+          <b>ежедневно · 9:00–23:00</b>
+        </li>
+        <li>
+          <span>Телефон</span>
+          <b><a href="tel:+74951204567">+7 (495) 120-45-67</a></b>
+        </li>
+        <li>
+          <span>Почта</span>
+          <b><a href="mailto:hello@imperia.fashion">hello@imperia.fashion</a></b>
+        </li>
+      </ul>
+      <div class="socials">
+        <a href="#contacts">Telegram</a>
+        <a href="#contacts">VK</a>
+        <a href="#contacts">Pinterest</a>
+      </div>
+    </div>
+    <div class="map reveal" data-delay="1" role="img" aria-label="Схема расположения бутика: Санкт-Петербург, Невский проспект, 22-24">
+      <div class="map__road map__road--h"></div>
+      <div class="map__road map__road--v"></div>
+      <div class="map__pin"></div>
+      <div class="map__chip">Imperia · Невский проспект, 22-24</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a class="logo" href="#hero" aria-label="Imperia — на главную">
+      <b>IMPERIA</b><span>дом моды</span>
+    </a>
+    <nav class="footer__nav" aria-label="Навигация в подвале">
+      <a href="#about">О бренде</a>
+      <a href="#collection">Коллекция</a>
+      <a href="#promo">Акции</a>
+      <a href="#bonus">Бонусы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <p class="footer__copy">© <span id="year">2026</span> Дом моды «Imperia» · <em>Носи империю.</em></p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var header = document.getElementById('header');
+  var burger = document.getElementById('burger');
+  var nav = document.getElementById('nav');
+
+  /* Шапка при прокрутке */
+  var onScroll = function(){ header.classList.toggle('scrolled', window.scrollY > 50); };
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+
+  /* Мобильное меню */
+  var closeNav = function(){
+    document.body.classList.remove('nav-open');
+    burger.setAttribute('aria-expanded','false');
+    burger.setAttribute('aria-label','Открыть меню');
+  };
+  burger.addEventListener('click', function(){
+    var open = document.body.classList.toggle('nav-open');
+    burger.setAttribute('aria-expanded', open);
+    burger.setAttribute('aria-label', open ? 'Закрыть меню' : 'Открыть меню');
+  });
+  nav.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', closeNav); });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape') closeNav(); });
+
+  /* Плавное появление секций при прокрутке */
+  var reveals = document.querySelectorAll('.reveal');
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:.15,rootMargin:'0px 0px -40px 0px'});
+    reveals.forEach(function(el){ io.observe(el); });
+  }else{
+    reveals.forEach(function(el){ el.classList.add('visible'); });
+  }
+
+  /* Текущий год в подвале */
+  document.getElementById('year').textContent = new Date().getFullYear();
+})();
+</script>
+
+</body>
+</html>
