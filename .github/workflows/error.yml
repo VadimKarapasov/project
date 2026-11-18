@@ -1,0 +1,9 @@
+name: Status check
+on: [push]
+
+jobs:
+  test-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Имитация ошибки
+        run: exit 1
